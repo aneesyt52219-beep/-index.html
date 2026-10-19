@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#090b16">
-<title>ANEES YT Tournament Arena</title>
+<title>亗 𝑺𝒎𝒊𝒍𝒆 𝑮𝒊𝒓𝒍 𝑭𝑭 𝑻𝒐𝒖𝒓𝒏𝒂𝒎𝒆𝒏𝒕 𝑨𝒓𝒆𝒏𝒂</title>
 
 <style>
 :root {
@@ -129,7 +128,7 @@ footer {
 
 <header>
   <div class="wrap nav">
-    <div class="brand">亗 ANEES YT TOURNAMENT</div>
+    <div class="brand">亗 𝑺𝒎𝒊𝒍𝒆 𝑮𝒊𝒓𝒍 𝑭𝑭 𝑻𝒐𝒖𝒓𝒏𝒂𝒎𝒆𝒏𝒕 𝑨𝒓𝒆𝒏𝒂</div>
     <nav>
       <a href="#matches">Matches</a>
       <a href="#register">Register</a>
@@ -142,7 +141,7 @@ footer {
 
   <div class="hero">
     <h1>YOUR NEXT <span>BOOYAH</span><br>STARTS HERE!</h1>
-    <p>Join the ANEES YT Free Fire Community Tournament Arena.</p>
+    <p>Join the 亗 𝑺𝒎𝒊𝒍𝒆 𝑮𝒊𝒓𝒍 𝑭𝑭 Free Fire Community Tournament Arena.</p>
     <a class="btn" href="#matches">Explore Matches</a>
     <a class="btn" href="#register">Register Now</a>
   </div>
@@ -209,6 +208,16 @@ footer {
     <h2>Player Registration</h2>
     <p>Fill in your details to create a registration message.</p>
 
+    <!-- Payment Box Added Here -->
+    <div class="card" style="margin-bottom: 20px; border-color: var(--cyan); max-width: 650px;">
+      <h3 style="margin-top:0; color:var(--cyan);">💳 Payment Method (EasyPaisa)</h3>
+      <p style="margin:5px 0;"><strong>EasyPaisa Number:</strong> 03291212186</p>
+      <p style="margin:5px 0;"><strong>Account Name:</strong> Smile Girl FF</p>
+      <p style="font-size:12px; color:var(--muted); margin-top:8px;">
+        * Payment karne ke baad apna screenshot aur TRX ID host ko zaroor bhejein.
+      </p>
+    </div>
+
     <form id="regForm">
 
       <label for="player">Player / Team Name *</label>
@@ -269,7 +278,7 @@ footer {
 
 <footer>
   <div class="wrap">
-    © <span id="year"></span> ANEES YT Tournament Arena
+    © <span id="year"></span> 亗 𝑺𝒎𝒊𝒍𝒆 𝑮𝒊𝒓𝒍 𝑭𝑭 𝑻𝒐𝒖𝒓𝒏𝒂𝒎𝒆𝒏𝒕 𝑨𝒓𝒆𝒏𝒂
     <p>Community tournament website.</p>
   </div>
 </footer>
@@ -302,7 +311,7 @@ form.addEventListener("submit", event => {
   const data = new FormData(form);
 
   registrationText = [
-    "ANEES YT TOURNAMENT REGISTRATION",
+    "亗 𝑺𝒎𝒊𝒍𝒆 𝑮𝒊𝒓𝒍 𝑭𝑭 TOURNAMENT REGISTRATION",
     "Player/Team: " + data.get("player").trim(),
     "Free Fire UID: " + data.get("uid").trim(),
     "Match: " + data.get("match"),
@@ -310,8 +319,8 @@ form.addEventListener("submit", event => {
       ? "Contact: " + data.get("contact").trim() : "",
     data.get("note")
       ? "Note: " + data.get("note").trim() : "",
-    "Entry fee and reward: Confirm with tournament host",
-    "Please confirm my registration."
+    "Payment Sent to EasyPaisa: 03291212186",
+    "Please confirm my registration and payment."
   ].filter(Boolean).join("\n");
 
   message.textContent = registrationText +

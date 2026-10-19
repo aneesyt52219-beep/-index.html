@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>亗 Smile Girl FF Tournament Arena</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #090b16;
+  color: white;
+}
+header {
+  padding: 18px;
+  text-align: center;
+  background: #151a30;
+  border-bottom: 2px solid #54e7ff;
+}
+header h2 {
+  color: #54e7ff;
+  margin: 5px;
+}
+nav {
+  padding: 14px;
+  text-align: center;
+  background: #101426;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+}
+.hero {
+  text-align: center;
+  padding: 55px 18px;
+  background: linear-gradient(135deg,#19274b,#35172f);
+}
+.hero h1 {
+  font-size: 36px;
+}
+.hero span {
+  color: #54e7ff;
+}
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  margin-top: 10px;
+  background: #54e7ff;
+  color: #090b16;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+section {
+  padding: 25px 16px;
+  max-width: 1000px;
+  margin: auto;
+}
+h2 {
+  color: #54e7ff;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 16px;
+}
+.card {
+  background: #151a30;
+  padding: 20px;
+  border: 1px solid #343d60;
+  border-radius: 14px;
+}
+.card p {
+  color: #c3c9df;
+  line-height: 1.6;
+}
+form {
+  background: #151a30;
+  padding: 20px;
+  border-radius: 14px;
+}
+input, select, textarea {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  margin: 10px 0 16px;
+  border: 1px solid #343d60;
+  border-radius: 8px;
+  background: #090b16;
+  color: white;
+}
+label {
+  font-size: 14px;
+}
+#result {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: #8cffc0;
+  line-height: 1.6;
+}
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #151a30;
+  color: #c3c9df;
+}
+</style>
+</head>
+
+<body>
+<header>
+  <h2>亗 SMILE GIRL FF</h2>
+  <div>TOURNAMENT ARENA</div>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#matches">Matches</a>
+  <a href="#register">Register</a>
+  <a href="#rules">Rules</a>
+</nav>
+
+<div class="hero" id="home">
+  <h1>YOUR NEXT <span>BOOYAH!</span></h1>
+  <p>Welcome to Smile Girl Free Fire Tournament Arena.</p>
+  <p>Join community matches and play fair!</p>
+  <a class="btn" href="#matches">Explore Matches</a>
+</div>
+
+<section id="matches">
+  <h2>🏆 Upcoming Matches</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Clash Squad</h3>
+      <p>Mode: CS 4v4</p>
+      <p>Entry: FREE</p>
+      <p>Time: Confirm with host</p>
+      <button class="btn" onclick="chooseMatch('Clash Squad')">
+        Register
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Battle Royale</h3>
+      <p>Mode: Squad</p>
+      <p>Entry: FREE</p>
+      <p>Time: Confirm with host</p>
+      <button class="btn" onclick="chooseMatch('Battle Royale')">
+        Register
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Custom Room</h3>
+      <p>Mode: Community Room</p>
+      <p>Entry: FREE</p>
+      <p>Time: Confirm with host</p>
+      <button class="btn" onclick="chooseMatch('Custom Room')">
+        Register
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="register">
+  <h2>📝 Player Registration</h2>
+  <form id="registrationForm">
+    <label for="player">Player Name</label>
+    <input id="player" required maxlength="40"
+      placeholder="Enter your game name">
+
+    <label for="uid">Free Fire UID</label>
+    <input id="uid" required inputmode="numeric"
+      pattern="[0-9]{5,20}" placeholder="Enter numeric UID">
+
+    <label for="match">Select Match</label>
+    <select id="match" required>
+      <option value="">Choose a match</option>
+      <option>Clash Squad</option>
+      <option>Battle Royale</option>
+      <option>Custom Room</option>
+    </select>
+
+    <label for="contact">Contact (optional)</label>
+    <input id="contact" maxlength="60"
+      placeholder="Optional contact detail">
+
+    <button class="btn" type="submit">
+      Create Registration Message
+    </button>
+
+    <p id="result"></p>
+    <button class="btn" id="copyButton" type="button" hidden>
+      Copy Registration
+    </button>
+  </form>
+</section>
+
+<section id="rules">
+  <h2>📜 Tournament Rules</h2>
+  <div class="card">
+    <p>1. No hacks, cheats, or unfair gameplay.</p>
+    <p>2. Follow the host's confirmed match schedule.</p>
+    <p>3. Respect all players.</p>
+    <p>4. Never share passwords or OTPs.</p>
+    <p>5. Registration is not confirmed until the host replies.</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Smile Girl FF Tournament Arena<br>
+  Community template — not affiliated with Garena.
+</footer>
+
+<script>
+function chooseMatch(name) {
+  document.getElementById("match").value = name;
+  document.getElementById("register").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+let registrationMessage = "";
+
+document.getElementById("registrationForm")
+.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const player = document.getElementById("player").value.trim();
+  const uid = document.getElementById("uid").value.trim();
+  const match = document.getElementById("match").value;
+  const contact = document.getElementById("contact").value.trim();
+
+  registrationMessage =
+    "SMILE GIRL FF TOURNAMENT REGISTRATION\n" +
+    "Player: " + player + "\n" +
+    "UID: " + uid + "\n" +
+    "Match: " + match + "\n" +
+    (contact ? "Contact: " + contact + "\n" : "") +
+    "Entry: FREE\n" +
+    "Please confirm my registration.";
+
+  document.getElementById("result").textContent =
+    registrationMessage +
+    "\n\nThis message has not been sent or saved online.";
+
+  document.getElementById("copyButton").hidden = false;
+});
+
+document.getElementById("copyButton")
+.addEventListener("click", async function() {
+  try {
+    await navigator.clipboard.writeText(registrationMessage);
+    document.getElementById("result").textContent =
+      "Registration message copied! Send it to your tournament host.";
+  } catch (error) {
+    document.getElementById("result").textContent =
+      registrationMessage +
+      "\n\nAutomatic copy failed. Select and copy this text manually.";
+  }
+});
+</script>
+</body>
+</html>
